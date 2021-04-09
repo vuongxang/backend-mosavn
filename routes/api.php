@@ -33,3 +33,7 @@ Route::put('category/{id}',[CategoryController::class,'update']);
 Route::delete('category/{id}',[CategoryController::class,'remove']);
 
 Route::get('product',[ProductController::class,'index']);
+Route::delete('product/{id}',[ProductController::class,'remove']);
+Route::get('product/{id}',[ProductController::class,'detail']);
+Route::post('product',[ProductController::class,'store']);
+Route::put('product/{id}',[ProductController::class,'update']);
