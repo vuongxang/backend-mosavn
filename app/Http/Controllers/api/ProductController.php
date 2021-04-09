@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(){
-        $models = Product::orderBy('created_at','DESC')->paginate(10);
+    public function index(Request $request){
+        $models = Product::orderBy($request->sort,$request->order)->where('name','like','%'.$request->keyword.'%')->paginate($request->pagesize);
         $models->load('category');
         return response()->json($models);
     }
