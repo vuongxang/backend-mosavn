@@ -17,7 +17,7 @@ class UserController extends Controller
         $user->fill($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
-        return response()->json($user);
+        return response()->json($user,201);
     }
 
     public function login(LoginRequest $request){
@@ -35,5 +35,12 @@ class UserController extends Controller
 
     public function userinfo(Request $request){
         return response()->json($request->user('api'));
+    }
+
+    public function logout(Request $request){
+        $request->user()->token()->revoke();
+        return response()->json([
+            'message'=>'successfuly logged out',
+        ]);
     }
 }
