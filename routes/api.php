@@ -36,12 +36,12 @@ Route::group([
     });
 });
 
-Route::post('register',[UserController::class,'register']);
-Route::post('login',[UserController::class,'login']);
-Route::get('user',[UserController::class,'userInfo'])->middleware('auth:api');
-Route::get('logout',[UserController::class,'logout'])->middleware('auth:api');
+// Route::post('register',[UserController::class,'register']);
+// Route::post('login',[UserController::class,'login']);
+// Route::get('user',[UserController::class,'userInfo'])->middleware('auth:api');
+// Route::get('logout',[UserController::class,'logout'])->middleware('auth:api');
 
-Route::get('category',[CategoryController::class,'index']);
+Route::get('category',[CategoryController::class,'index'])->middleware('auth:api');
 Route::get('category/{id}',[CategoryController::class,'detail']);
 Route::post('category',[CategoryController::class,'store']);
 Route::put('category/{id}',[CategoryController::class,'update']);
