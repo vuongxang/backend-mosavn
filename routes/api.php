@@ -41,7 +41,8 @@ Route::group([
 // Route::get('user',[UserController::class,'userInfo'])->middleware('auth:api');
 // Route::get('logout',[UserController::class,'logout'])->middleware('auth:api');
 
-Route::get('category',[CategoryController::class,'index'])->middleware('auth:api');
+Route::get('category',[CategoryController::class,'index']);
+Route::get('category/list',[CategoryController::class,'getAll']);
 Route::get('category/{id}',[CategoryController::class,'detail']);
 Route::post('category',[CategoryController::class,'store']);
 Route::put('category/{id}',[CategoryController::class,'update']);

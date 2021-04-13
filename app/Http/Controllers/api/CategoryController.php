@@ -15,8 +15,15 @@ class CategoryController extends Controller
         return response()->json($cates);
     }
 
+    public function getAll(){
+        $cates = Category::orderBy('created_at','DESC')->get();
+        $cates->load('products');
+        return response()->json($cates);
+    }
+
     public function detail($id){
         $model = Category::find($id);
+        $model->load('products');
         return response()->json($model);
     }
 
