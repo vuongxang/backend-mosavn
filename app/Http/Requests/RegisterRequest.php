@@ -32,7 +32,8 @@ class RegisterRequest extends FormRequest
             ],
             'password'=>[
                 'required',
-                'min:8'
+                'min:8',
+                'confirmed',
             ],
             'name'=> 'required'
         ];
@@ -45,6 +46,7 @@ class RegisterRequest extends FormRequest
             'email.unique' => "Email đã tồn tại",
             'password.required'=>'Yêu cầu nhập password',
             'password.min'=>'Password tối thiểu 8 ký tự',
+            'password.confirmed'=>'Vui lòng xác nhận mật khẩu',
             'name.required'=>'Hãy nhập tên'
         ];
     }
