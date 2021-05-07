@@ -21,4 +21,7 @@ class Product extends Model
     public function category(){
         return $this->BelongsTo(Category::class,'cate_id');
     }
+    public function productGallaries(){
+        return $this->hasMany(ProductGallery::class,'pro_id');
+    }
 }

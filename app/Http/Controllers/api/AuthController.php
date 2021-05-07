@@ -53,11 +53,13 @@ class AuthController extends Controller
     }
  
     public function login(LoginRequest $request){
+
+
         if(Auth::attempt([
             'email' => $request->email,
             'password' => $request->password
             ])){
-                $user = User::where('email',$request->email)->first();
+                $user = Auth::user();
                 $user->token = $user->createToken('App')->accessToken;
                 return response()->json($user);
         }else{
